@@ -1,0 +1,41 @@
+.logo_encabezado{
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.leyenda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        background-color: #ffffff;
+        font-size: 14px;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .leyenda{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width:768px) {
+   main {
+    display: none;
+   }
+   header{
+    display: none;
+   }
+
+
+}
