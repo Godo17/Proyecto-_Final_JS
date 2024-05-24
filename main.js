@@ -4,6 +4,7 @@ const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 const crearUsuario = (nombre,documento,tipologia,descripcion) => {
     const usuario = {
         fecha: new Date(),
+        id:crypto.randomUUID(),
         nombre: nombre,
         documento: documento,
         tipologia: tipologia,
@@ -25,7 +26,10 @@ const principal = () => {
             const buscarTipologia = document.getElementById("buscarTipologia")
             const detalle = document.getElementById("detalle")
             crearUsuario(nombreUsuario.value, documentoUsuario.value, buscarTipologia.value, detalle.value)
-            id:crypto.randomUUID(),
+            //acá deberia crearse un Id random y mostrarse al usuario con un alert
+            
+            const nroTicket = crypto.randomUUID()
+            alert("Su numero de ticket es: " + nroTicket)
             nombreUsuario.value=""
             documentoUsuario.value=""
             buscarTipologia.value=""

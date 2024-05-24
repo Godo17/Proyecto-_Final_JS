@@ -6,6 +6,41 @@
 
 }
 
+
+.formulario{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+input{
+    width: 400px;
+    align-self: center;
+}
+.detalle{
+    width: 400px;
+    align-self: center;
+}
+.btnEjecutar{
+    width: 100px;
+    align-self: center;
+}
+
+input{
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid rgb(80, 105, 245);
+    
+}
+.buscarTipologia{
+    width: 415px;
+    align-self: center;
+}
+textarea{
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid rgb(80, 105, 245);
+}
 .leyenda{
     display: flex;
     justify-content: center;
@@ -14,7 +49,7 @@
 
 @media screen and (max-width: 767px) {
     body {
-        background-color: #ffffff;
+        background: #67aab9;
         font-size: 14px;
     }
 
