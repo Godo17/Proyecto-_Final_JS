@@ -47,6 +47,11 @@ textarea{
     align-items: center;
 }
 
+.ticket{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 @media screen and (max-width: 767px) {
     body {
         background: #67aab9;
