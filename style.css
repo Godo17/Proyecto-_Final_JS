@@ -52,6 +52,10 @@ textarea{
     justify-content: center;
     flex-direction: column;
 }
+
+.swal2-confirm.swal2-styled{
+    background-color: #67aab9;
+}
 @media screen and (max-width: 767px) {
     body {
         background: #67aab9;

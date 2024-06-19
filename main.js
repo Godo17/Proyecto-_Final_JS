@@ -25,7 +25,14 @@ const borrarTicket = (id) => {
 
 }
 
-borrarTicket()
+const borrarVistaTicket = (id) =>{
+    const element = document.getElementById(id)
+    element.remove()
+}
+
+const actualizarTicket = (id,nombreNuevoUsuario, documentoNuevoUsuario, nuevoDetalle) => {
+
+}
 
 
 const visualizarTicket = (usuario) => {
@@ -40,12 +47,16 @@ const visualizarTicket = (usuario) => {
                         <input type="text" class="input" value="${usuario.tipologia}">
                         <textarea type="text" class="detalle">${usuario.descripcion}</textarea>
                         
-                        <button class="btnEjecutar btn-actualizar">Actualizar</button>
-                        <button class="btnEjecutar btn-eliminar">Eliminar</button>
+                        <button class="btn btnActualizar">Actualizar</button>
+                        <button class="btn btnBorrar">Eliminar</button>
                         `
     app.append(element)
 }
 const principal = () => {
+
+    usuarios.forEach(usuario => {
+        crearUsuario(usuario)
+    })
     const btnEjecutar = document.getElementById("btnEjecutar")
         btnEjecutar.addEventListener("click",() => {
             const nombreUsuario = document.getElementById("nombreUsuario")
@@ -57,13 +68,28 @@ const principal = () => {
             //acá deberia crearse un Id random y mostrarse al usuario con un alert
             
             const nroTicket = crypto.randomUUID()
-            alert("Su numero de ticket es: " + nroTicket)
+            Swal.fire({
+                title: nombreUsuario.value,
+                text: 'Su N° de ticket: ' + nroTicket,
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+              })
             nombreUsuario.value=""
             documentoUsuario.value=""
             buscarTipologia.value=""
             detalle.value=""
         })
         
+        const app = document.getElementById("app") 
+        app.addEventListener("click",(event)=>{
+            if(event.target && event.target.classList.contains("btnBorrar")){
+                /*const parentElement = event.target.parentElement
+                const id = parentElement.id
+                borrarTicket(id)
+                borrarVistaTicket(id)*/
+                console.log("prueba");
+            }
+        })
 }
 
 principal()
