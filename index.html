@@ -4,37 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Final</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     
 </head>
 <body>
     <header>
         <div class="logo_encabezado">
-            <img  src="./assets/logogertechTrasnparente.png" alt="logo" width="30%">
+            <img  src="./assets/logoPyoectJS.png" alt="logo" width="30%">
         </div>
     </header>
     <main id="app" class="appPrincipal">
+
+        <div class= "aviso">
+            <h2>Bienvenido al portal de gestión de reclamos de Gertech</h2>
+
+        </div>
         <div class="formulario">
             <input type="date" class="fecha">
             <input type="text" id="nombreUsuario" class="nombreUsuario" placeholder="Ingrese nombre">
             <input type="text" id="documentoUsuario" class="documentoUsuario" placeholder="Ingrese documento">
-            <input type="search" id="buscarTipologia" class="buscarTipologia" placeholder="Seleccione la tipología">
-            <textarea id="detalle" class="detalle" placeholder=" descrición" placeholder="agregue una descrición"></textarea>
+            <input type="search" id="buscarTipologia" class="buscarTipologia" placeholder="Descripcion breve del problema">
+            <textarea id="detalle" class="detalle" placeholder="Comentarios"></textarea>
             <button id="btnEjecutar" class="btnEjecutar">Confirmar</button>
         </div>
 
-        <div class="visualizar"></div>
+        <div class= "aviso">
+            <h5>Luego de confirmar podrá visualizar su Ticket generado.</h5>
 
-        <div class="editar">
-            <button id="btnActualizar" class="btnActualizar"></button>  
         </div>
 
-        <div class="eliminar">
-            <button id="btnBorrar" class="btnBorrar"></button>
-        </div>
 
-        <div id="NroTicket"></div>
+
+
     </main>
 
 

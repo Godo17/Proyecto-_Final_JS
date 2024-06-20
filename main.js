@@ -16,8 +16,6 @@ const crearUsuario = (nombre,documento,tipologia,descripcion) => {
     return usuario
 }
 
-crearUsuario()
-console.log(usuarios)
 
 const borrarTicket = (id) => {
     usuarios = usuarios.filter(usuario => usuario.id != id)
@@ -30,7 +28,22 @@ const borrarVistaTicket = (id) =>{
     element.remove()
 }
 
-const actualizarTicket = (id,nombreNuevoUsuario, documentoNuevoUsuario, nuevoDetalle) => {
+const actualizarTicket = (id,nombre,documento,tipologia,descripcion) =>{
+    usuarios = usuarios.map(usuario => {
+        if(usuario.id === id){
+            return{
+                fecha: new Date(),
+                nombre,
+                id,
+                documento,
+                tipologia,
+                descripcion
+            }
+        }
+        return usuario
+    })
+    localStorage.setItem("usuarios",JSON.stringify(usuarios))
+    
 
 }
 
@@ -39,13 +52,14 @@ const visualizarTicket = (usuario) => {
      const app = document.getElementById("app")
      const element = document.createElement("div")
      element.className = "ticket"
+     element.id = usuario.id  
      element.innerHTML = `
                         <input type="text" class="input" value="${usuario.nombre}">
                         <input type="text" class="input" value="${usuario.fecha}">
                         <input type="text" class="input" value="${usuario.id}">
                         <input type="text" class="input" value="${usuario.documento}">
                         <input type="text" class="input" value="${usuario.tipologia}">
-                        <textarea type="text" class="detalle">${usuario.descripcion}</textarea>
+                        <textarea type="text" class="input">${usuario.descripcion}</textarea>
                         
                         <button class="btn btnActualizar">Actualizar</button>
                         <button class="btn btnBorrar">Eliminar</button>
@@ -54,9 +68,9 @@ const visualizarTicket = (usuario) => {
 }
 const principal = () => {
 
-    usuarios.forEach(usuario => {
+   /* usuarios.forEach(usuario => {
         crearUsuario(usuario)
-    })
+    })*/
     const btnEjecutar = document.getElementById("btnEjecutar")
         btnEjecutar.addEventListener("click",() => {
             const nombreUsuario = document.getElementById("nombreUsuario")
@@ -83,11 +97,20 @@ const principal = () => {
         const app = document.getElementById("app") 
         app.addEventListener("click",(event)=>{
             if(event.target && event.target.classList.contains("btnBorrar")){
-                /*const parentElement = event.target.parentElement
+                const parentElement = event.target.parentElement
                 const id = parentElement.id
                 borrarTicket(id)
-                borrarVistaTicket(id)*/
-                console.log("prueba");
+                borrarVistaTicket(id)
+            }
+            if(event.target && event.target.classList.contains("btnActualizar")){
+                const parentElement = event.target.parentElement
+                const id = parentElement.id
+                const inputs = parentElement.getElementsByClassName("input")
+                const nombre = inputs[0].value
+                const documento = inputs[3].value
+                const tipologia = inputs[4].value
+                const descripcion = inputs[5].value
+                actualizarTicket(id,nombre,documento,tipologia,descripcion)
             }
         })
 }
